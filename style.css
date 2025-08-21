@@ -1,0 +1,199 @@
+﻿/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-size: 400% 400%;
+    animation: bgShift 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    color: white;
+    flex-direction: column;
+}
+
+    /* الخلفيات المتغيرة */
+    body.bg1 {
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+
+    body.bg2 {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    }
+
+    body.bg3 {
+        background: radial-gradient(circle, #000428, #004e92);
+    }
+
+    body.bg4 {
+        background: linear-gradient(to right, #8e2de2, #4a00e0);
+    }
+
+@keyframes bgShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* زر دائري صغير في الأسفل */
+#changeBg {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #0ff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0ff;
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* دوائر الطاقة */
+.circle {
+    position: absolute;
+    width: calc(2vmin + var(--l) * 0.5vmin);
+    height: calc(2vmin + var(--l) * 0.5vmin);
+    border-radius: 50%;
+    background: radial-gradient(circle, #00f, #0ff);
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+    animation: pulse 2s ease-in-out infinite, hueShift 4s linear infinite;
+    opacity: 0.6;
+    top: calc(var(--l) * 5%);
+    left: calc(var(--l) * 6%);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+@keyframes hueShift {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* مكعبات متحركة */
+.cube {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #0ff;
+    box-shadow: 0 0 10px #0ff;
+    animation: spinCube 6s linear infinite;
+    top: calc(10% + var(--i) * 15%);
+    left: calc(20% + var(--i) * 20%);
+}
+
+@keyframes spinCube {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.3);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* معلومات الشخصية */
+.info {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    animation: fadeIn 2s ease-out;
+    max-width: 80%;
+}
+
+    .info h1 {
+        font-size: 6vmin;
+        color: #0ff;
+        text-shadow: 0 0 15px #0ff;
+        margin-bottom: 1vh;
+    }
+
+/* حركة نط */
+.bounce {
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.info h2 {
+    font-size: 3.5vmin;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+    margin-bottom: 1vh;
+}
+
+.status {
+    font-size: 2.8vmin;
+    color: #fff;
+    margin-bottom: 2vh;
+    font-weight: bold;
+}
+
+.quotes {
+    list-style: none;
+    padding: 0;
+    margin-top: 2vh;
+}
+
+    .quotes li {
+        font-size: 2.2vmin;
+        margin-bottom: 1vh;
+        color: #ccc;
+        font-style: italic;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

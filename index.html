@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Altayeb Power Zone</title>
+    <link rel="stylesheet" href="style.css">
+    <audio id="powerSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9b9b6b4b7f.mp3?filename=anime-powerup-1-10885.mp3" preload="auto"></audio>
+</head>
+<body class="bg1">
+    <!-- زر دائري لتبديل الخلفية -->
+    <button id="changeBg" title="Change Animation"></button>
+
+    <!-- دوائر طاقة -->
+    <div class="circle" style="--l:0"></div>
+    <div class="circle" style="--l:1"></div>
+    <div class="circle" style="--l:2"></div>
+    <div class="circle" style="--l:3"></div>
+    <div class="circle" style="--l:4"></div>
+    <div class="circle" style="--l:5"></div>
+    <div class="circle" style="--l:6"></div>
+    <div class="circle" style="--l:7"></div>
+    <div class="circle" style="--l:8"></div>
+    <div class="circle" style="--l:9"></div>
+
+    <!-- مكعبات متحركة -->
+    <div class="cube" style="--i:0"></div>
+    <div class="cube" style="--i:1"></div>
+    <div class="cube" style="--i:2"></div>
+    <div class="cube" style="--i:3"></div>
+
+    <!-- معلومات الشخصية -->
+    <div class="info">
+        <h1 class="bounce">ALTAYEB</h1>
+        <h2>Al-Jundi</h2>
+        <p class="status"><strong>This person will be back at his desk in just a few minutes</strong></p>
+
+        <ul class="quotes">
+            <li>"Focus is the ultimate power."</li>
+            <li>"Energy flows where attention goes."</li>
+            <li>"Discipline beats motivation."</li>
+            <li>"Silence is strength."</li>
+            <li>"Every second counts."</li>
+            <li>"Victory belongs to the patient."</li>
+            <li>"The storm is inside, not outside."</li>
+            <li>"Eyes on the goal, heart in the fire."</li>
+            <li>"Return stronger than before."</li>
+            <li>"Power is earned, not given."</li>
+        </ul>
+    </div>
+
+    <!-- تشغيل الصوت وتبديل الخلفية -->
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('powerSound').play();
+        });
+
+        const backgrounds = ['bg1', 'bg2', 'bg3', 'bg4'];
+        let current = 0;
+
+        document.getElementById('changeBg').addEventListener('click', () => {
+            document.body.classList.remove(backgrounds[current]);
+            current = (current + 1) % backgrounds.length;
+            document.body.classList.add(backgrounds[current]);
+        });
+    </script>
+</body>
+</html>
